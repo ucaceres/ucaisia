@@ -1,0 +1,28 @@
+python CnxDataBaseMySql_8017.py "localhost"
+ 3306 "Automatizado" "automata" "LadeSixbell2017" " Select * From Comandos "
+python CnxDataBasePostgres_10x.py "localhost"
+ 3306 "postres" "LadelMaestro" "postgres" "Select Id, Nombre, Edad From Public.Mascotas;"
+python InstalarDesinstalarPqtesPython.py
+python AccesoLogin.py localhost 3306 Automatizado automata LadeSixbell2017
+
+-- Oracle
+python Mantenedor_CRUD.py 1 2 UCAISIA0000.ucaisia.cl 1521 UCRP.ucaisia.cl COFISA LadelMaestro "Select * From COFISA.MD_ADDITIONAL_PROPERTIES"
+-- Sql Server
+python Mantenedor_CRUD.py 2 2 UCAISIA0000\MSSQLSERVER 1433 PortalCliente sa LadelMaestro "Select * From PORTAL_PAR_PAISES;"
+python Mantenedor_CRUD.py 2 1 UCAISIA0000\MSSQLSERVER 1433 PortalCliente sa LadelMaestro "Insert [dbo].[PORTAL_PAR_GIROSECONOMICOS] ([COD_GIROSECONOMICOS], [DESCRIPCION], [AUDITORIA_FEC_CREACION], [AUDITORIA_FEC_MODIF], [AUDITORIA_FEC_EXPIRACION]) VALUES (1000, N'Agricultura', Cast(0x00009CAB00CB3D68 AS DateTime), NULL, NULL)"
+-- MySql
+python Mantenedor_CRUD.py 3 2 localhost 3306 Automatizado automata LadeSixbell2017 "Select * From MallaProceso;"
+python Mantenedor_CRUD.py 3 2 localhost 3306 Automatizado automata LadeSixbell2017 "Select b.DESCPERFIL, a.IDPERFIL, a.CLAVE From Usuarios a, PerfilesSeguridad b Where a.IDPERFIL = b.IDPERFIL;"
+python Mantenedor_CRUD.py 3 3 localhost 3306 Automatizado automata LadeSixbell2017 "Update MallaProceso Set CMDOSERVER = 'Get-PSDrive -PSProvider FileSystem | Sort-Object Free | Format-Table -AutoSize' Where IDTICKET = 1 And RUTEMP = 97036000 And IPSERVER = '180.123.18.140' And IDPLANTILLA = 1 And IDSISTEMA = 2 And IDTITULO = 1 And IDSECCION = 1 And IDSUBSECC = 1 And SECCMDOS = 1;"
+-- PostgresSQL
+python Mantenedor_CRUD.py 4 2 192.168.118.1 5432 postgres postgres LadelMaestro "Select Id, Nombre, Edad From Public.Mascotas;"
+python Mantenedor_CRUD.py 4 1 192.168.118.1 5432 postgres postgres LadelMaestro "Insert Into Public.Mascotas(Id, Nombre, Edad) Values (6, '{Dobermann}', 1);"
+-- MongoDB
+python Mantenedor_CRUD.py 5 2 127.0.0.1 27017 XXXXXXX XXXXXXXX XXXXXXXXXXXXX "db.peliculas.find();"
+python Mantenedor_CRUD.py 5 1 127.0.0.1 27017 postgres postgres UCAIsiaSA2016 "db.getCollection("titulo").insert ({'Capitán América, Guerra final'});"
+-- MariaDB
+python Mantenedor_CRUD.py 6 2 localhost 3306 Pruebas root LadelMaestro "Select ID, Nombre From MiTabla;"
+python Mantenedor_CRUD.py 6 3 localhost 3306 Pruebas root LadelMaestro "Update MiTabla Set NOMBRE = 'Osvaldo Mauricio, Supermandoneao' Where ID = 4;"
+-- DB2
+python Mantenedor_CRUD.py 7 2 UCAISIA0000 50000 Pruebas Administrator LadelMaestro "Select * From Empleados"
+python Mantenedor_CRUD.py 7 1 UCAISIA0000 50000 Pruebas Administrator LadelMaestro "Insert Into Empleados  (EMPNO, FIRSTNME, LASTNAME, SALARY) Values (0, 'Mandrake', 'El Mago', 8000000.00)"
